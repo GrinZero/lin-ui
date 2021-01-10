@@ -78,6 +78,15 @@ Component({
   },
 
   methods: {
+
+    /**
+     * 动态设置通告栏内容后刷新动画
+     */
+    flush(){
+      this.destroyTimer();
+      this.initAnimation();
+    },
+
     async initAnimation() {
       const rect = await nodeUtil.getNodeRectFromComponent(this, '.l-noticebar-content');
       const wrapRect = await nodeUtil.getNodeRectFromComponent(this, '.l-noticebar-content-wrap');
